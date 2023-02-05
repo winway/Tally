@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_dialog_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_dialog_ok_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_main_record_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/main_button_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_record.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_main_budget.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_remark.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_time.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_payout.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_record.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/gvitem_record.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvheader_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvitem_main.xml" value="0.22826086956521738" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">简约记账</string>
+    <string name="record_one">记一笔……</string>
+    <string name="current_month_payout">本月支出</string>
+    <string name="current_month_income">本月收入</string>
+    <string name="left_budget">预算剩余</string>
+    <string name="view_chart">查看图表分析</string>
+    <string name="add_remark">添加备注</string>
+    <string name="add_remark_hint">备注</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="input_time">请输入时间（24小时制）</string>
+    <string name="set_budget">设置预算</string>
+</resources>
