@@ -8,8 +8,10 @@
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_main_record_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/main_button_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/search_box_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_record.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_search.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_main_budget.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_remark.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_time.xml" value="0.22826086956521738" />

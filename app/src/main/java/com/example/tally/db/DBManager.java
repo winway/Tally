@@ -119,4 +119,33 @@ public class DBManager {
 
         return money;
     }
+
+    public static int deleteRecordById(int id) {
+        int nRows = sDatabase.delete("record", "id=?", new String[]{id + ""});
+        return nRows;
+    }
+
+    public static List<RecordBean> getRecordListByRemark(String remark) {
+        List<RecordBean> recordBeanList = new ArrayList<>();
+
+        String sql = "select * from record where remark like ? order by id desc";
+
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{"%" + remark + "%"});
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            int imageId = cursor.getInt(cursor.getColumnIndex("image_id"));
+            float money = cursor.getFloat(cursor.getColumnIndex("money"));
+            remark = cursor.getString(cursor.getColumnIndex("remark"));
+            String time = cursor.getString(cursor.getColumnIndex("time"));
+            int year = cursor.getInt(cursor.getColumnIndex("year"));
+            int month = cursor.getInt(cursor.getColumnIndex("month"));
+            int day = cursor.getInt(cursor.getColumnIndex("day"));
+            int type = cursor.getInt(cursor.getColumnIndex("type"));
+
+            recordBeanList.add(new RecordBean(id, name, imageId, money, remark, time, year, month, day, type));
+        }
+
+        return recordBeanList;
+    }
 }

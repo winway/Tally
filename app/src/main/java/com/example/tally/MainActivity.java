@@ -1,11 +1,14 @@
 package com.example.tally;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -80,7 +83,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mListAdapter = new TradeListAdapter(this, mListAdapterData);
         mLV.setAdapter(mListAdapter);
 
+        mLV.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    return false;
+                }
+                RecordBean recordBean = mListAdapterData.get(i - 1);
+                showDeleteDialog(recordBean);
+                return false;
+            }
+        });
+
         addListHeaderView();
+    }
+
+    private void showDeleteDialog(RecordBean recordBean) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("提示信息")
+                .setMessage("确定删除此记录吗？")
+                .setNegativeButton("取消", null)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DBManager.deleteRecordById(recordBean.getId());
+                        mListAdapterData.remove(recordBean);
+                        mListAdapter.notifyDataSetChanged();
+                        refreshListHeaderView();
+                    }
+                }).create().show();
     }
 
     private void addListHeaderView() {
@@ -134,11 +165,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClick(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.main_search_iv:
+                intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
                 break;
             case R.id.main_record_btn:
-                Intent intent = new Intent(MainActivity.this, RecordActivity.class);
+                intent = new Intent(MainActivity.this, RecordActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_more_btn:
