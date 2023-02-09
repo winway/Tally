@@ -43,6 +43,7 @@ public class DBManager {
             int type = cursor.getInt(cursor.getColumnIndex("type"));
             typeList.add(new MoneyTypeBean(id, name, imageId, imageIdSelected, type));
         }
+        cursor.close();
 
         return typeList;
     }
@@ -80,6 +81,30 @@ public class DBManager {
 
             recordBeanList.add(new RecordBean(id, name, imageId, money, remark, time, year, month, day, type));
         }
+        cursor.close();
+
+        return recordBeanList;
+    }
+
+    public static List<RecordBean> getRecordListByYM(int year, int month) {
+        List<RecordBean> recordBeanList = new ArrayList<>();
+
+        String sql = "select * from record where year=? and month=? order by id desc";
+
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{year + "", month + ""});
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            int imageId = cursor.getInt(cursor.getColumnIndex("image_id"));
+            float money = cursor.getFloat(cursor.getColumnIndex("money"));
+            String remark = cursor.getString(cursor.getColumnIndex("remark"));
+            String time = cursor.getString(cursor.getColumnIndex("time"));
+            int day = cursor.getInt(cursor.getColumnIndex("day"));
+            int type = cursor.getInt(cursor.getColumnIndex("type"));
+
+            recordBeanList.add(new RecordBean(id, name, imageId, money, remark, time, year, month, day, type));
+        }
+        cursor.close();
 
         return recordBeanList;
     }
@@ -92,6 +117,7 @@ public class DBManager {
         if (cursor.moveToNext()) {
             money = cursor.getFloat(cursor.getColumnIndex("m"));
         }
+        cursor.close();
 
         return money;
     }
@@ -104,6 +130,7 @@ public class DBManager {
         if (cursor.moveToNext()) {
             money = cursor.getFloat(cursor.getColumnIndex("m"));
         }
+        cursor.close();
 
         return money;
     }
@@ -116,6 +143,7 @@ public class DBManager {
         if (cursor.moveToNext()) {
             money = cursor.getFloat(cursor.getColumnIndex("m"));
         }
+        cursor.close();
 
         return money;
     }
@@ -123,6 +151,10 @@ public class DBManager {
     public static int deleteRecordById(int id) {
         int nRows = sDatabase.delete("record", "id=?", new String[]{id + ""});
         return nRows;
+    }
+
+    public static void deleteAllRecord() {
+        sDatabase.execSQL("delete from record");
     }
 
     public static List<RecordBean> getRecordListByRemark(String remark) {
@@ -145,7 +177,24 @@ public class DBManager {
 
             recordBeanList.add(new RecordBean(id, name, imageId, money, remark, time, year, month, day, type));
         }
+        cursor.close();
 
         return recordBeanList;
+    }
+
+    public static List<Integer> getYearList() {
+        List<Integer> yearList = new ArrayList<>();
+
+        String sql = "select distinct(year) from record order by year asc";
+
+        Cursor cursor = sDatabase.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int year = cursor.getInt(cursor.getColumnIndex("year"));
+
+            yearList.add(year);
+        }
+        cursor.close();
+
+        return yearList;
     }
 }

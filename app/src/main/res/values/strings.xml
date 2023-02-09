@@ -13,4 +13,10 @@
     <string name="set_budget">设置预算</string>
     <string name="search_hint">请输入搜索信息</string>
     <string name="search_empty_text">无记录</string>
+    <string name="about">关于</string>
+    <string name="setting">设置</string>
+    <string name="bill_history">账单记录</string>
+    <string name="bill_detail">账单详情</string>
+    <string name="current_month_bill_history">本月账单记录</string>
+    <string name="clean_all_records">清空所有记录</string>
 </resources>

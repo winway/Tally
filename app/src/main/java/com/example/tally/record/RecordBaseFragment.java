@@ -171,7 +171,7 @@ public abstract class RecordBaseFragment extends Fragment implements View.OnClic
                 mTimeTV.setText(time);
                 mRecordBean.setTime(time);
                 mRecordBean.setYear(year);
-                mRecordBean.setMoney(month);
+                mRecordBean.setMonth(month);
                 mRecordBean.setDay(day);
             }
         });

@@ -49,7 +49,7 @@ public class TradeListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.lvitem_main, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.lvitem_trade, null);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {

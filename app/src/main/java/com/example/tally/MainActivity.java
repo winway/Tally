@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tally.adapter.TradeListAdapter;
 import com.example.tally.bean.RecordBean;
 import com.example.tally.common.BudgetDialog;
+import com.example.tally.common.MoreDialog;
 import com.example.tally.db.DBManager;
 import com.example.tally.record.RecordActivity;
 import com.example.tally.utils.DateUtils;
@@ -176,6 +177,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.main_more_btn:
+                MoreDialog moreDialog = new MoreDialog(this);
+                moreDialog.show();
+                moreDialog.setDialogSize();
                 break;
             case R.id.lvheader_main_budget_amount_tv:
                 showBudgetDialog();

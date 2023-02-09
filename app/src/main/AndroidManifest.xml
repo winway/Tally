@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Tally"
         tools:targetApi="31">
         <activity
+            android:name=".more.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.BillHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
