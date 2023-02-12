@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.tally.bean.BillDetailChartItemBean;
 import com.example.tally.bean.BillDetailChartListItemBean;
 import com.example.tally.bean.MoneyTypeBean;
 import com.example.tally.bean.RecordBean;
@@ -150,6 +151,19 @@ public class DBManager {
         return count;
     }
 
+    public static float getMaxDayMoneyByYM(int year, int month, int type) {
+        String sql = "select sum(money) as m from record where year=? and month=? and type=? group by day order by sum(money) desc";
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(type)});
+
+        float money = 0.0f;
+        if (cursor.moveToNext()) {
+            money = cursor.getFloat(cursor.getColumnIndex("m"));
+        }
+        cursor.close();
+
+        return money;
+    }
+
     public static float getTotalMoneyByY(int year, int type) {
         String sql = "select sum(money) as m from record where year=? and type=?";
         Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(type)});
@@ -229,6 +243,23 @@ public class DBManager {
             float percent = new BigDecimal(money / totalMoney).setScale(4, 4).floatValue();
 
             itemBeanList.add(new BillDetailChartListItemBean(imageId, name, percent, money));
+        }
+        cursor.close();
+
+        return itemBeanList;
+    }
+
+    public static List<BillDetailChartItemBean> getDayMoneyByYM(int year, int month, int type) {
+        List<BillDetailChartItemBean> itemBeanList = new ArrayList<>();
+
+        String sql = "select day, sum(money) as total_money from record where year=? and month=? and type=? group by day order by day";
+
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(type)});
+        while (cursor.moveToNext()) {
+            int day = cursor.getInt(cursor.getColumnIndex("day"));
+            float money = cursor.getFloat(cursor.getColumnIndex("total_money"));
+
+            itemBeanList.add(new BillDetailChartItemBean(year, month, day, money));
         }
         cursor.close();
 
