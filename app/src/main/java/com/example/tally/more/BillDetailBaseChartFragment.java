@@ -15,6 +15,7 @@ import com.example.tally.adapter.BillDetailChartListAdapter;
 import com.example.tally.bean.BillDetailChartItemBean;
 import com.example.tally.bean.BillDetailChartListItemBean;
 import com.example.tally.db.DBManager;
+import com.example.tally.utils.DateUtils;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
@@ -109,7 +110,7 @@ public abstract class BillDetailBaseChartFragment extends Fragment {
         List<IBarDataSet> iBarDataSetList = new ArrayList<>();
 
         List<BarEntry> barEntryList = new ArrayList<>();
-        for (int i = 0; i < 31; i++) { //  TODO: 动态获取当月天数
+        for (int i = 0; i < DateUtils.getDaysByYM(year, month); i++) {
             barEntryList.add(new BarEntry(i, 0.0f));
         }
         for (int i = 0; i < chartItemBeanList.size(); i++) {
@@ -154,13 +155,23 @@ public abstract class BillDetailBaseChartFragment extends Fragment {
         XAxis xAxis = mBR.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawAxisLine(true);
-        xAxis.setLabelCount(31); // TODO: 动态获取当月天数，首日/中间日/末日position，或者根据数据动态显示x轴label
+        xAxis.setLabelCount(DateUtils.getDaysByYM(year, month));
         xAxis.setTextSize(12f);
+
+        final List<BillDetailChartItemBean> chartItemBeanList = DBManager.getDayMoneyByYM(year, month, getType());
 
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
                 int pos = (int) value;
+
+                // 显示数据对应日期，会造成日期重叠。
+//                for (BillDetailChartItemBean item : chartItemBeanList) {
+//                    if (pos == item.getDay() - 1) {
+//                        return month + "-" + (pos + 1);
+//                    }
+//                }
+
                 if (pos == 0) {
                     return month + "-1";
                 }
@@ -169,6 +180,8 @@ public abstract class BillDetailBaseChartFragment extends Fragment {
                 }
                 if (pos == 27 && month == 2) {
                     return month + "-28";
+                } else if (pos == 28 && month == 2) {
+                    return month + "-29";
                 } else if (pos == 29 && (month == 4 || month == 6 || month == 9 || month == 11)) {
                     return month + "-30";
                 } else if (pos == 30 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)) {

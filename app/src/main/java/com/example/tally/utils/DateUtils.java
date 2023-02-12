@@ -44,4 +44,11 @@ public class DateUtils {
 
         return false;
     }
+
+    public static int getDaysByYM(int year, int month) {
+        Calendar instance = Calendar.getInstance();
+        instance.set(Calendar.YEAR, year);
+        instance.set(Calendar.MONDAY, month - 1);
+        return instance.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
 }
