@@ -4,13 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_dialog_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_dialog_cancel_background.xml" value="0.144" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_dialog_ok_background.xml" value="0.1335" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_main_more_background.xml" value="0.144" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/btn_main_record_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/main_button_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/drawable/search_box_background.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_about.xml" value="0.12132725430597771" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_bill_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_bill_history.xml" value="0.24947916666666667" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_chart.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_more.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/activity_record.xml" value="0.22826086956521738" />
@@ -21,12 +25,16 @@
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_main_more.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_remark.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/dialog_record_time.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_bill_detail_chart.xml" value="0.24947916666666667" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_bill_detail_payout_chart.xml" value="0.24947916666666667" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_payout.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/fragment_record.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/gvitem_bill_history_calendar.xml" value="0.2484375" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/gvitem_record.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/hsvitem_bill_history_calendar.xml" value="0.2484375" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvheader_bill_detail_chart.xml" value="0.186328125" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvheader_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvitem_bill_detail_chart.xml" value="0.2484375" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvitem_main.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/Tally/app/src/main/res/layout/lvitem_trade.xml" value="0.24947916666666667" />
       </map>

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Tally"
         tools:targetApi="31">
         <activity
+            android:name=".more.BillDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".more.SettingActivity"
             android:exported="false" />
         <activity

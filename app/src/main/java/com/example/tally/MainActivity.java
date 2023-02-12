@@ -22,6 +22,7 @@ import com.example.tally.bean.RecordBean;
 import com.example.tally.common.BudgetDialog;
 import com.example.tally.common.MoreDialog;
 import com.example.tally.db.DBManager;
+import com.example.tally.more.BillDetailActivity;
 import com.example.tally.record.RecordActivity;
 import com.example.tally.utils.DateUtils;
 
@@ -190,7 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view == mListHeaderV) {
-
+            intent = new Intent(this, BillDetailActivity.class);
+            startActivity(intent);
         }
     }
 

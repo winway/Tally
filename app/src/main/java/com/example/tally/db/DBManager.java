@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.tally.bean.BillDetailChartListItemBean;
 import com.example.tally.bean.MoneyTypeBean;
 import com.example.tally.bean.RecordBean;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -135,6 +137,19 @@ public class DBManager {
         return money;
     }
 
+    public static int getCountByYM(int year, int month, int type) {
+        String sql = "select count(*) as n from record where year=? and month=? and type=?";
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(type)});
+
+        int count = 0;
+        if (cursor.moveToNext()) {
+            count = cursor.getInt(cursor.getColumnIndex("n"));
+        }
+        cursor.close();
+
+        return count;
+    }
+
     public static float getTotalMoneyByY(int year, int type) {
         String sql = "select sum(money) as m from record where year=? and type=?";
         Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(type)});
@@ -196,5 +211,27 @@ public class DBManager {
         cursor.close();
 
         return yearList;
+    }
+
+    public static List<BillDetailChartListItemBean> getTypeStaticsByYM(int year, int month, int type) {
+        List<BillDetailChartListItemBean> itemBeanList = new ArrayList<>();
+
+        float totalMoney = getTotalMoneyByYM(year, month, type);
+
+        String sql = "select name, image_id, sum(money) as total_money from record where year=? and month=? and type=? " +
+                "group by image_id, name order by total_money desc";
+
+        Cursor cursor = sDatabase.rawQuery(sql, new String[]{String.valueOf(year), String.valueOf(month), String.valueOf(type)});
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            int imageId = cursor.getInt(cursor.getColumnIndex("image_id"));
+            float money = cursor.getFloat(cursor.getColumnIndex("total_money"));
+            float percent = new BigDecimal(money / totalMoney).setScale(4, 4).floatValue();
+
+            itemBeanList.add(new BillDetailChartListItemBean(imageId, name, percent, money));
+        }
+        cursor.close();
+
+        return itemBeanList;
     }
 }

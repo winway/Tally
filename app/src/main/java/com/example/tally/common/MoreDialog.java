@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 
 import com.example.tally.R;
 import com.example.tally.more.AboutActivity;
+import com.example.tally.more.BillDetailActivity;
 import com.example.tally.more.BillHistoryActivity;
 import com.example.tally.more.SettingActivity;
 
@@ -72,6 +73,8 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
                 getContext().startActivity(intent);
                 break;
             case R.id.dialog_main_more_bill_detail_btn:
+                intent.setClass(getContext(), BillDetailActivity.class);
+                getContext().startActivity(intent);
                 break;
             case R.id.dialog_main_more_close_iv:
                 break;
